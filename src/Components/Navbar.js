@@ -7,6 +7,10 @@ import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 function Navbar() {
   const cart = useSelector((state) => state.cart);
+  const fixToggler = () => {
+    const showModel = document.querySelector("#navbarSupportedContent");
+    showModel.classList.remove("show");
+  };
   return (
     <>
       <nav className="navbar navbar-expand-lg position-fixed w-100">
@@ -28,22 +32,63 @@ function Navbar() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item ">
-                <Link className="nav-link active" aria-current="page" to="/">
+                <Link
+                  className="nav-link active"
+                  aria-current="page"
+                  to="/"
+                  onClick={() => {
+                    fixToggler();
+                    window.scrollTo({
+                      top: 0,
+                      behavior: "smooth",
+                    });
+                  }}
+                >
                   Products
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/about">
+                <Link
+                  className="nav-link"
+                  to="/about"
+                  onClick={() => {
+                    fixToggler();
+                    window.scrollTo({
+                      top: 0,
+                      behavior: "smooth",
+                    });
+                  }}
+                >
                   About
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/contact-us">
+                <Link
+                  className="nav-link"
+                  to="/contact-us"
+                  onClick={() => {
+                    fixToggler();
+                    window.scrollTo({
+                      top: 0,
+                      behavior: "smooth",
+                    });
+                  }}
+                >
                   Contact Us
                 </Link>
               </li>
               <li>
-                <Link className="nav-link position-relative" to="/cart">
+                <Link
+                  className="nav-link position-relative"
+                  to="/cart"
+                  onClick={() => {
+                    fixToggler();
+                    window.scrollTo({
+                      top: 0,
+                      behavior: "smooth",
+                    });
+                  }}
+                >
                   <div className="cart-icon">
                     <i>
                       <FontAwesomeIcon icon={faCartShopping} />
